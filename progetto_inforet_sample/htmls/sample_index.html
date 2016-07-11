@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <style type="text/css">
+   @font-face {
+    font-family: "Roboto_Slab_Light";
+    src: url('../Roboto_Slab/RobotoSlab-Light.ttf') format('truetype');
+    }
+    @font-face {
+    font-family: "Roboto_Slab_Bold";
+    src: url('../Roboto_Slab/RobotoSlab-Bold.ttf') format('truetype');
+    }
+    p{
+      color: white;
+      margin-top: 0%;
+    }
+    p.customfont { 
+    color: #ffffff;
+    font-size: 16px;
+    font-family: "Roboto_Slab_Light";
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #4B4B4B;
+    text-align: center;
+    border: none;
+    margin: 0% 40% 1% 40%; 
+    padding: 0.5% 0% 0.5% 0%;
+  }
+  td{
+    border-radius: 10px;
+    padding: 1%;
+  }
+  td+td{
+    font-size: 30px;
+  }
+  div.filelist {
+    position: absolute;
+    top:10%;
+    left: 0%;
+    background-color: #969696;
+    width:100%; 
+    height:30%; 
+    overflow:scroll;
+    padding-top: 1%; 
+    margin: 0%;
+  }
+
+  #table_content{
+  font-family: "Roboto_Slab_Light";
+  position: absolute;
+  left: 0%;
+  top:38%;
+  }
+
+  #document_title{
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    margin: 0%;
+    background-color: #4B4B4B;
+    height: 10%;
+    width: 100%;
+    font-family: "Roboto_Slab_Light";
+  }
+  a{
+    font-family: "Roboto_Slab_Light";
+position: absolute;
+left: 3%;
+top: 30%;
+background-color: #dddddd;
+color: #4b4b4b;
+border-radius: 10px;
+font-size: 14px;
+padding: 0.5%;
+cursor: pointer;
+text-decoration: none;
+  }
+
+  a:hover{
+    background-color: white;
+  }
+
+  .doctitle{margin: 1% 0% 1% 0%;}
+
+  p.bold{
+  font-family: "Roboto_Slab_Bold";
+  display: inline;
+  font-size: 22px;
+}
+p.notbold{
+  font-family: "Roboto_Slab_Light";
+  display: inline;
+  font-size: 22px;
+}
+  </style>
+  <script src="../jquery-2.2.4.min.js">
+  </script>
+  <title>
+   Topic View
+  </title>
+ </head>
+ <body>
+  <div class="filelist" id="div_list">
+  </div>
+  <div id="table_content">
+  </div>
+  <div id="document_title">
+   <a href="sample_topic.html" target="_blank">
+    Topic description
+   </a>
+   <h1 class="doctitle">
+   </h1>
+  </div>
+  <script type="text/javascript">
+   $(".customfont").hover(function(){
+    $(this).css("background-color", "#646464");
+    }, function(){
+    $(this).css("background-color", "#4b4b4b");
+  });
+
+  $( ".customfont" ).click(function( event ) {
+            var text = $(this).text()
+            var path = 'sample_tables/'+text+".html"
+            var str = path.replace(/\s/g, '')
+          
+            $(".doctitle").text(text)
+            
+            $.ajax({
+            url: str,
+            cache: false,
+            success: function (data) { 
+              $("#table_content").empty()
+              $("#table_content").append(data); },
+            dataType: 'html'
+            });
+        });
+
+  $(window).scroll(function(){
+  var fixedtitle = $('#document_title'),
+      scroll = $(window).scrollTop();
+});
+  </script>
+ </body>
+</html>

@@ -1,0 +1,79 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 AmericanTypewriter;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19220\viewh13360\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs40 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+
+\b0\fs32 \cf0 Alessandra Pascazio mat. 861086
+\b \
+Documentazione progetto \'93TopicView\'94\
+Corso di Information Retrieval\
+Anno 2015/2016
+\fs40 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qj\partightenfactor0
+
+\b0 \cf0 \
+
+\b\fs24 OBIETTIVI DEL PROGETTO
+\b0 \
+Creazione di un sistema che rilevi e mostri i principali topic presenti in un documento testuale.\
+\
+
+\b TECNICHE UTILIZZATE E CONTESTUALIZZAZIONE NELL\'92IR
+\b0 \
+E\'92 stato utilizzato durante lo sviluppo del progetto il modello 
+\b LDA 
+\b0 (Latent Dirichlet Analysis) per il calcolo dei topic in ciascuno dei testi. \
+Dunque dal punto di vista dell\'92Information Retrieval ci si colloca nell\'92ambito del 
+\b Topic
+\b0  
+\b Modeling
+\b0  e dunque dello studio dei temi rilevanti in dati documenti testuali.\
+\
+
+\b DATASET E ACQUISIZIONE DATI
+\b0 \
+Il dataset, scaricato all\'92indirizzo {\field{\*\fldinst{HYPERLINK "http://docsouth.unc.edu/fpn/"}}{\fldrslt http://docsouth.unc.edu/fpn/}} , si presenta come un insieme di file in formato txt. \
+I testi consistono in racconti d\'92autore di scrittori americani, dunque l\'92intero dataset \'e8 in lingua inglese.\
+\
+
+\b REALIZZAZIONE DEL PROGETTO
+\b0 \
+La prima fase del progetto prevede l\'92analisi e il processamento dei file testuali che comprende la suddivisione di questi in paragrafi, la tokenizzazione, la rimozione della punteggiatura e lo stemming dei termini.\
+Il modello LDA per la rilevazione dei topic viene poi applicato ai testi processati. \
+Una volta ottenuti i topic per ciascuno dei paragrafi, il sistema procede al calcolo della specificit\'e0, all\'92interno dei paragrafi, di ciascuno dei termini caratteristici rispetto al topic attribuito al paragrafo. Tutti i termini ritenuti specifici nei paragrafi vengono aggregati per topic in modo da ottenere infine una lista di termini caratterizzanti per il topic e che allo stesso tempo risultano specifici per i paragrafi associati a tale topic. \
+I risultati di questi calcoli vengono mostrati in una pagina html in cui ciascuno dei topic ottenuti tramite il modello LDA \'e8 rappresentato con un colore scelto casualmente dal sistema.\
+Ogni paragrafo ha dunque come colore di sfondo quello del topic ad esso associato e, di fianco, la descrizione del topic: (numero ottenuto dal modello) e la lista di termini specifici calcolata in precedenza, con in risalto i termini specifici per il paragrafo rappresentati in grassetto. \
+E\'92 stata inoltre creata una pagina html di supporto in cui sono stati inseriti i topic e le loro descrizioni, ossia per ognuno la lista dei termini specifici in tutti i paragrafi a cui sono stati associati.\
+\
+
+\b VALUTAZIONE E METRICHE
+\b0 \
+Per la fase di valutazione \'e8 stato preso ad oggetto un dataset rilasciato da Yelp. Il dataset contiene le recensioni degli utenti di locali americani. \
+Le analogie con il progetto sviluppato sono le seguenti:\
+- ciascun locale rappresenta quelli che per il dataset originario sono i file testuali\
+- le singole review rappresentano i paragrafi dei documenti e dunque in tal caso dei locali\
+- i termini specifici per ogni topic rispetto alle recensioni descrivono le categorie rappresentative del locale recensito\
+In definitiva dunque il processo di valutazione consiste nel misurare quantole parole mostrate al termine siano vicine alla lista dei termini che descrivono le categorie.\
+La metrica \'e8 definita come la percentuale di termini presenti nella lista delle categorie del locale sull\'92intera lista dei termini risultati in seguito al calcolo della specificit\'e0, indipendentemente dal topic. Tale misura quindi pu\'f2 essere tradotta nel rapporto tra il numero di termini presenti nella lista delle categorie del locale e la somma dei termini specifici dati da ogni topic per quel locale. \
+\
+
+\b RISULTATI OTTENUTI
+\b0 \
+In seguito alla fase di valutazione del sistema \'e8 risultato come gli utenti menzionino ben poco le categorie dei locali che recensiscono, motivo per cui la percentuale calcolata \'e8 in media piuttosto bassa.\
+\
+LINK A REPOSITORY\
+\
+\
+
+\fs40 \
+\
+\
+\
+\
+
+\b \
+}
