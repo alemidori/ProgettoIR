@@ -19,8 +19,7 @@ def calculate_topic_distribution():
         terms = []
         for i in range(0,50):
             terms.append(k[1][i][0])
-        storage.insert_topics_3_most_significant_words(k[0], terms)
-        #print(k)
+        storage.insert_topics_50_most_significant_words(k[0], terms)
 
 
     corpus_Lda = Lda_model[corpus]

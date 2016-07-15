@@ -16,11 +16,11 @@ splitting.process_stories()
 
 terms_dictionary.create_terms_dictonary() #creo dizionario dei termini di tutti i file
 
-storage.save_frequency_allcorpus()
+storage.save_frequency_allcorpus() #salvo in una collection le frequenze di tutti i termini nell'intero corpus
 
-main_topic_distribution.main()
+main_topic_distribution.main() #calcolo la distribuzione dei topic con LDA
 
-main_topic_specification.main()
+main_topic_specification.main() #calcolo specificità dei termini LDA e creo html
 
 
 

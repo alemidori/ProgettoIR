@@ -8,5 +8,3 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 def main():
     topic_distribution.calculate_topic_distribution()
     return
-
-#print("Processo terminato.")

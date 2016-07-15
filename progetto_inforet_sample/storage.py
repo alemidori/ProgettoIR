@@ -7,16 +7,8 @@ from collections import Counter
 
 client = pymongo.MongoClient()
 
-# paragraphs_coll = db['paragraphs'] #collezione paragrafi con relativi tokens, racconto di riferimento e posizione nel racconto
-# terms_ref_coll = db['terms_ref'] #collezione dei token con i rispettivi termini originali dai quali provengono
-# topics_terms = db['topics_terms'] #collezione primi 50 termini restituiti dal modello lda per ogni topic
-# term_frequency_corpus = db['term_frequency_corpus'] #collezione termini di tutto il corpus e relative occorrenze
-# story_support = db['story_support'] #collezione di supporto per creare indici su determinati attributi (token,descr)
-# #su ciascun paragrafo
+#*******************************************************************************************************************
 
-#*******************************************************************************************************************
-#*******************************************************************************************************************
-#*******************************************************************************************************************
 # parte di valutazione con nuovo db e nuovi metodi che lavorano su di esso
 dbsample = client['sample'] #database creato per la valutazione del sistema
 
@@ -50,15 +42,8 @@ def get_stemmed_terms_paragraph():
         # riferiti ad ogni singolo paragrafo
     return token_list_paragraph
 
-def get_paragr_descr_from_id(idstory, pos):
-    cursor = paragraphs_coll.find({'id_story': idstory,'pos':pos}, {'_id': 0, 'descr': 1})
-    a = ""
-    for element in cursor:
-        a = element['descr']
-    return a
 
-
-def insert_topics_3_most_significant_words(id_topic,arraywords):
+def insert_topics_50_most_significant_words(id_topic,arraywords):
     topics_terms.insert_one({'id_topic': id_topic,'words_list': arraywords})
     return
 
