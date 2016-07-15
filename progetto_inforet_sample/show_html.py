@@ -2,12 +2,18 @@ from bs4 import BeautifulSoup
 import random
 import storage
 import glob
+import os
 
 html_file = "htmls/sample_index.html"
 
 soup_html = BeautifulSoup(open(html_file), 'lxml')
 map_topic_color = {}
 
+
+def create_folder():
+    if not os.path.exists('htmls/sample_tables/'):
+        os.makedirs('htmls/sample_tables/')
+    return
 
 def fill_index():
     path = "htmls/sample_tables/*.html"

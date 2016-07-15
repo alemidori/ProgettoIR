@@ -7,6 +7,7 @@ import show_html
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 def main():
+    show_html.create_folder()
     show_html.set_topic_random_color()
     show_html.create_tablesfile()
     show_html.fill_index()
